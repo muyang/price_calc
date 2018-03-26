@@ -1,0 +1,7 @@
+{
+  "name": "price-calc on Heroku",
+  "description": "An test of deploying Flask web app to Heroku.",
+  "image": "heroku/python",
+  "repository": "https://git.heroku.com/nameless-coast-92123.git",
+  "keywords": ["python", "flask" ]
+}
