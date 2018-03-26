@@ -4,8 +4,8 @@ from compute import *
 
 from werkzeug import secure_filename
 
-eu2us = 1.15
-us2rmb = 6.5
+# eu2us = 1.15
+# us2rmb = 6.5
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -16,15 +16,19 @@ def index():
 		price1 = getPrePrice(form.PLZ.data, CBM, form.Weight.data)
 		price2 = getPostPrice(form.Province.data, form.City.data, CBM, form.Weight.data)		
 		#result = compute(form.A.data, form.b.data,form.w.data, form.T.data)
+		eu2us = form.eu2us.data
+		us2rmb = form.us2rmb.data
 		
-		FOG = CBM * 120
-		ISPS = 2.5
-		Un_loading = 31.5* form.Weight.data / 1000
-		CFS = 12 * CBM
-		Anti_Terror = 3
+		FOG = CBM * form.FOG.data
+		ISPS = form.ISPS.data
+		Un_loading = form.Weight.data * form.Un_loading.data
+		CFS = CBM * form.CFS.data
+		Anti_Terror = form.Terror.data
+		Cargo_Service = form.Cargo.data
 		#Pickup = 200 * eu2us
-		Custom_clearance = 300.0 / us2rmb
-		price3=price1 * eu2us + price2 / 6.5 + (FOG +ISPS + Un_loading + CFS + Anti_Terror + Custom_clearance)
+		Custom_clearance = form.Custom.data / us2rmb
+
+		price3=price1 * eu2us + price2 / us2rmb + (FOG +ISPS + Un_loading + CFS + Anti_Terror + Custom_clearance + Cargo_Service)
 
 	else:
 		price1 = None

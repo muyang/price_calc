@@ -38,4 +38,31 @@ class InputForm(Form):
 	Province = StringField('Province (Jiangsu, Beijing)', default='Jiangsu', validators=[validators.DataRequired()])
 	City = StringField('City (Suzhou, Beijing)', default='Taizhou', validators=[validators.DataRequired()])
 
-	
+	FOG = FloatField(
+		label='FOG price per CBM:€/cbm', default=120,
+		validators=[validators.InputRequired()])	
+	ISPS = FloatField(
+		label='ISPS price:€', default=2.5,
+		validators=[validators.InputRequired()])
+	Un_loading = FloatField(
+		label='loading or unloading fee:€/kg', default=31.5/1000,
+		validators=[validators.InputRequired()])		
+
+	CFS = FloatField(
+		label='CFS fee per CBM:€/cbm', default=12,
+		validators=[validators.InputRequired()])
+	Terror = FloatField(
+		label='anti-terror service fee:€', default=3,
+		validators=[validators.InputRequired()])
+	Cargo = FloatField(
+		label='Cargo Service fee:€', default=7,
+		validators=[validators.InputRequired()])
+	Custom = FloatField(
+		label='Cargo Service fee(RMB：¥)', default=300,
+		validators=[validators.InputRequired()])
+	eu2us = FloatField(
+		label='€/$ ', default=1.15,
+		validators=[validators.InputRequired()])
+	us2rmb = FloatField(
+		label='$/¥', default=6.5,
+		validators=[validators.InputRequired()])
