@@ -1,0 +1,55 @@
+<form method=post action="">
+<!--
+<p> Price Table <p/>
+<form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+ <input type = "file" name = "file" />
+ <input type = "submit"/>
+</form>
+-->
+	  
+<table>
+  {% for field in form %}
+    <tr>
+    <td>{{ field.name }}</td><td>{{ field(size=12) }}</td>
+    <td>{{ field.label }}</td>
+    {% if field.errors %}
+      <td><ul class=errors>
+      {% for error in field.errors %}
+        <li><font color="red">{{ error }}</font></li>
+      {% endfor %}</ul></td>
+    {% endif %}
+    </tr>
+  {% endfor %}
+</table>
+<p><input type=submit value=Compute></form></p>
+
+<p>
+{% if price1 != None %}
+  <td> 
+     Pre-carriage Price is: {{ price1 }} € 
+  </td>
+{% endif %}
+</p>
+
+<p>
+{% if price2 != None %}
+  <td> 
+     Post-carriage Price is: {{ price2 }} RMB
+  </td>
+{% endif %}
+</p>
+
+<p>
+{% if price3 != None %}
+  <td> 
+     The Total Price is: {{ price3 }} $
+  </td>
+{% endif %}
+</p>
+<!--
+<p>
+{% if result != None %}
+<img src="{{ result }}" width="500">
+{% endif %}
+</p>
+-->
