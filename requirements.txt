@@ -23,7 +23,7 @@ matplotlib==2.2.2
 numpy==1.14.0
 pandas==0.22.0
 SQLAlchemy==1.2.5
-urllib3==1.22
+urllib3==1.26.5
 Werkzeug==0.14.1
 win-inet-pton==1.0.1
 wincertstore==0.2
